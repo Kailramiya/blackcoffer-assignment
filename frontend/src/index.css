@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --color-surface-900: #0b0e1a;
+  --color-surface-800: #111524;
+  --color-surface-800-solid: #111524;
+  --color-surface-700: #181d30;
+  --color-surface-600: #232a44;
+  --color-surface-border: #262c45;
+
+  --color-accent-violet: #8b5cf6;
+  --color-accent-cyan: #22d3ee;
+  --color-accent-pink: #f472b6;
+  --color-accent-amber: #fbbf24;
+  --color-accent-emerald: #34d399;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-surface-900);
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar for the dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #2e3552;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3c4468;
+}
+
+/* Dual-handle range slider */
+.range-thumb {
+  height: 0;
+}
+.range-thumb::-webkit-slider-thumb {
+  appearance: none;
+  pointer-events: auto;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: #c4b5fd;
+  border: 2px solid #8b5cf6;
+  cursor: pointer;
+  margin-top: 0;
+}
+.range-thumb::-moz-range-thumb {
+  pointer-events: auto;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: #c4b5fd;
+  border: 2px solid #8b5cf6;
+  cursor: pointer;
+}
+.range-thumb::-webkit-slider-runnable-track {
+  background: transparent;
+}
+.range-thumb::-moz-range-track {
+  background: transparent;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.animate-pulse-soft {
+  animation: pulse-soft 1.6s ease-in-out infinite;
+}
