@@ -59,6 +59,16 @@ npm run dev   # starts on http://localhost:5173 (proxies /api -> localhost:5000)
 
 Open http://localhost:5173 in your browser.
 
+## Deployment
+
+The frontend (Vercel/Netlify) and backend (Render/Railway/etc.) are deployed separately:
+
+- **Backend**: deploy the `backend/` folder, set the `MONGO_URI` and `CLIENT_ORIGIN` env vars
+  (`CLIENT_ORIGIN` should be your deployed frontend URL, e.g. `https://your-app.vercel.app`).
+- **Frontend**: deploy the `frontend/` folder, set the `VITE_API_BASE_URL` env var to your deployed
+  backend's API URL (e.g. `https://your-backend.onrender.com/api`). If unset, it falls back to `/api`,
+  which only works with the local Vite dev proxy.
+
 ## API Endpoints
 
 All endpoints accept the same set of optional filter query params:
